@@ -12,43 +12,32 @@ rm (list = ls ())
 # Plot - Vaccination coverage
 # Vaccination coverage in Ethiopia among children aged 12-23 months by 
 # socioeconomic, geographic, maternal and child characteristics.
-#   socioeconomic (household wealth, religion, ethnicity)
-#   geographic (area of residence, region)
-#   maternal (maternal age at birth, maternal education, maternal marital status, sex of household head) 
-#   child (sex of child, birth order) characteristics
 # ------------------------------------------------------------------------------
 
 # read file with plot data
 plot_data <- fread ("data_coverage.csv")
-plot_list <- vector (mode = "list", length = 4)
+plot_list <- vector (mode = "list", length = 2)
 
-# loop through plots for vaccination coverage
-for (i in 1:4) {
+# loop through 2 plots for vaccination coverage
+for (i in 1:2) {
   
   plot_dat <- switch (i, 
-                      # socioeconomic characteristics
-                      "1" = plot_data [characteristics == "Household wealth" | 
-                                         characteristics == "Religion" |
-                                         characteristics == "Ethnicity"],
-                      # geographic characteristics
-                      "2" = plot_data [characteristics == "Residence" | 
-                                         characteristics == "Region"],
-                      # maternal characteristics
-                      "3" = plot_data [characteristics == "Maternal age" | 
-                                         characteristics == "Maternal education" | 
-                                         characteristics == "Marital status" |
-                                         characteristics == "Household head"], 
-                      # child characteristics
-                      "4" = plot_data [characteristics == "Child" | 
-                                         characteristics == "Birth order"]
-                      )
+                      "1" = plot_data [characteristics != "Household wealth" & 
+                                         characteristics != "Religion" & 
+                                         characteristics != "Ethnicity" & 
+                                         characteristics != "Residence" & 
+                                         characteristics != "Region"],
+                      "2" = plot_data [characteristics == "Household wealth" | 
+                                         characteristics == "Religion" | 
+                                         characteristics == "Ethnicity" | 
+                                         characteristics == "Residence" |
+                                         characteristics == "Region"]
+  )
   
   # plot title
   plot_title <- switch (i, 
-                        "1" = "Socioeconomic characteristics", 
-                        "2" = "Geographic characteristics", 
-                        "3" = "Maternal characteristics", 
-                        "4" = "Child characteristics")
+                        "1" = "Basic vaccination coverage by maternal and child characteristics", 
+                        "2" = "Basic vaccination coverage by socioeconomic and geographic characteristics")
   
   # plot
   plot_list [[i]] <- ggplot (data = plot_dat, 
@@ -58,33 +47,27 @@ for (i in 1:4) {
     geom_bar (stat = "identity", width = 0.75, alpha=0.9) + 
     labs (x = "",
           y = "Basic vaccination coverage (%)", 
-          title = plot_title
-          ) +
-    # ggtitle (plot_title) +
+          title = plot_title) +
     coord_flip () + 
     facet_grid (characteristics ~ ., scales = "free") +
     theme_bw () + 
-    theme (legend.position="none") + 
-    theme (plot.title = element_text (size = 12)) 
+    theme(legend.position="none")
 }
 
-# arrange plot columns and rows
-p <- ggarrange (plotlist = plot_list, ncol = 2, nrow = 2)
-print (p)
-
-p <- annotate_figure (p,
-                      top = text_grob ("Basic vaccination coverage by socioeconomic, geographic, maternal and child characteristics",
-                                       color = "black", 
-                                       size = 13))
+# print plot
+print (plot_list [[1]])
+print (plot_list [[2]])
 
 # save plot to file
-ggsave (filename = "plot_socioeconomic_geographic_maternal_child_coverage.png", 
-        plot = p, 
+ggsave (filename = "plot_coverage_maternal_child.png", 
+        plot = plot_list [[1]], 
         units = "in", width = 8, height = 8, 
         dpi = 300)
 
-# print plot
-print (p)
+ggsave (filename = "plot_coverage_socioeconomic_geographic.png", 
+        plot = plot_list [[2]], 
+        units = "in", width = 8, height = 8, 
+        dpi = 300)
 
 
 # ------------------------------------------------------------------------------
@@ -137,8 +120,7 @@ p <- annotate_figure (p,
 print (p)
 
 # save plot to file
-ggsave (filename = "plot_aor.png", 
-        plot = p, 
+ggsave (filename = "plot_aor.png", plot = p, 
         units = "in", width = 8, height = 6.5, 
         dpi = 300)
 
