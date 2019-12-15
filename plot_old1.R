@@ -59,12 +59,12 @@ print (plot_list [[1]])
 print (plot_list [[2]])
 
 # save plot to file
-ggsave (filename = "plot_coverage_maternal_child.png", 
+ggsave (filename = "plot_coverage_maternal_child.jpg", 
         plot = plot_list [[1]], 
         units = "in", width = 8, height = 8, 
         dpi = 300)
 
-ggsave (filename = "plot_coverage_socioeconomic_geographic.png", 
+ggsave (filename = "plot_coverage_socioeconomic_geographic.jpg", 
         plot = plot_list [[2]], 
         units = "in", width = 8, height = 8, 
         dpi = 300)
@@ -120,7 +120,7 @@ p <- annotate_figure (p,
 print (p)
 
 # save plot to file
-ggsave (filename = "plot_aor.png", plot = p, 
+ggsave (filename = "plot_aor.jpg", plot = p, 
         units = "in", width = 8, height = 6.5, 
         dpi = 300)
 
