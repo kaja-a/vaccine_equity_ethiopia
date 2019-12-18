@@ -65,7 +65,9 @@ for (i in 1:4) {
     facet_grid (characteristics ~ ., scales = "free") +
     theme_bw () + 
     theme (legend.position="none") + 
-    theme (plot.title = element_text (size = 12)) 
+    theme (plot.title = element_text (size = 18)) + 
+    theme (axis.text = element_text (size = 14)) + 
+    theme (axis.title = element_text (size = 18))
 }
 
 # arrange plot columns and rows
@@ -75,12 +77,12 @@ print (p)
 p <- annotate_figure (p,
                       top = text_grob ("Basic vaccination coverage by socioeconomic, geographic, maternal and child characteristics",
                                        color = "black", 
-                                       size = 13))
+                                       size = 24))
 
 # save plot to file
 ggsave (filename = "plot_socioeconomic_geographic_maternal_child_coverage.jpg", 
         plot = p, 
-        units = "in", width = 8, height = 8, 
+        units = "in", width = 14, height = 12, 
         dpi = 300)
 
 # print plot
