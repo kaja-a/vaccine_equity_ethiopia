@@ -65,9 +65,10 @@ for (i in 1:4) {
     facet_grid (characteristics ~ ., scales = "free") +
     theme_bw () + 
     theme (legend.position="none") + 
-    theme (plot.title = element_text (size = 18)) + 
-    theme (axis.text = element_text (size = 14)) + 
-    theme (axis.title = element_text (size = 18))
+    theme (plot.title = element_text (size = 30)) + 
+    theme (axis.text = element_text (size = 24)) + 
+    theme (axis.title = element_text (size = 24)) + 
+    theme (strip.text.y = element_text (size = 16))
 }
 
 # arrange plot columns and rows
@@ -77,12 +78,12 @@ print (p)
 p <- annotate_figure (p,
                       top = text_grob ("Basic vaccination coverage by socioeconomic, geographic, maternal and child characteristics",
                                        color = "black", 
-                                       size = 24))
+                                       size = 33))
 
 # save plot to file
 ggsave (filename = "plot_socioeconomic_geographic_maternal_child_coverage.jpg", 
         plot = p, 
-        units = "in", width = 14, height = 12, 
+        units = "in", width = 20, height = 20, 
         dpi = 300)
 
 # print plot
@@ -99,16 +100,18 @@ print (p)
 plot_data <- fread ("data_aor.csv")
 plot_list <- vector (mode = "list", length = 2)
 
-# loop through 2 subplots
-for (i in 1:2) {
+# loop through 8 subplots
+for (i in 1:8) {
   
   plot_dat <- switch (i, 
-                      "1" = plot_data [characteristics != "Region" & 
-                                         characteristics != "Birth order" & 
-                                         characteristics != "Child" ],
-                      "2" = plot_data [characteristics == "Region" | 
-                                         characteristics == "Birth order" | 
-                                         characteristics == "Child"]
+                      "1" = plot_data [characteristics == "Household wealth"], 
+                      "2" = plot_data [characteristics == "Region"],
+                      "3" = plot_data [characteristics == "Maternal education"],
+                      "4" = plot_data [characteristics == "Household head"],
+                      "5" = plot_data [characteristics == "Birth order"],
+                      "6" = plot_data [characteristics == "Child"],
+                      "7" = plot_data [characteristics == "Maternal age"],
+                      "8" = plot_data [characteristics == "Residence"]
                       )
   
   # plot
@@ -119,29 +122,29 @@ for (i in 1:2) {
     geom_bar (stat = "identity", width = 0.75, alpha=0.9) + 
     geom_errorbar (aes (ymin = low_95ci, ymax = high_95ci, width = 0.25), 
                    col = "orange") + 
-    labs (x = "",
-          y = "Adjusted odds ratios") +
     coord_flip () + 
     facet_grid (characteristics ~ ., scales = "free") +
     theme_bw () + 
-    theme(legend.position="none")
-  
+    theme (legend.position="none") + 
+    theme (axis.title.x = element_blank (), 
+           axis.title.y = element_blank ()) + 
+    theme (strip.text.y = element_text (size = 11))
 }
 
 # arrange plot columns and rows
-p <- ggarrange (plotlist = plot_list, ncol = 2, nrow = 1)
+p <- ggarrange (plotlist = plot_list, ncol = 2, nrow = 4)
 
 p <- annotate_figure (p,
-                     top = text_grob ("                     Adjusted odds ratios of basic vaccination coverage in children aged 12-23 months",
+                     top = text_grob ("Adjusted odds ratios of basic vaccination coverage in children aged 12-23 months",
                                       color = "black", 
-                                      size = 12))
+                                      size = 15))
 # print plot
 print (p)
 
 # save plot to file
 ggsave (filename = "plot_aor.jpg", 
         plot = p, 
-        units = "in", width = 8, height = 6.5, 
+        units = "in", width = 8, height = 7, 
         dpi = 300)
 
 
