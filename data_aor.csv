@@ -1,0 +1,31 @@
+characteristics,specific_characteristics,AOR,low_95ci,high_95ci
+Household wealth,poorest,1,,
+Household wealth,poorer,1.85,1.08,3.18
+Household wealth,middle,1.77,1,3.23
+Household wealth,richer,2.57,1.47,4.51
+Household wealth,richest,2.8,1.19,6.61
+Residence,rural,1,,
+Residence,urban,1.44,0.56,3.71
+Region,Afar,1,,
+Region,Tigray,9.1,3.47,23.85
+Region,Amhara,3.7,1.42,9.6
+Region,Oromia,1.7,0.66,4.38
+Region,Somali,2.23,0.8,6.16
+Region,Benishangul,7.95,2.94,21.47
+Region,SNNPR,2.27,0.86,5.98
+Region,Gambela,2.37,0.9,6.21
+Region,Harari,2.37,0.9,6.18
+Region,Addis Ababa,7.65,2.5,23.45
+Region,Dire Dawa,7.45,2.54,21.89
+Maternal age,15-19 years,1,,
+Maternal age,20-34 years,1.39,0.84,2.32
+Maternal age,35-49 years,0.86,0.43,1.68
+Maternal education,none,1,,
+Maternal education,primary,1.48,1.03,2.13
+Maternal education,secondary/higher,2.15,0.99,4.68
+Household head,male,1,,
+Household head,female,0.53,0.35,0.8
+Child,male,1,,
+Child,female,1.1,0.8,1.51
+Birth order,fourth born or higher,1,,
+Birth order,firstborn to third born,1.08,0.76,1.54

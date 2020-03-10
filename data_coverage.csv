@@ -1,0 +1,42 @@
+characteristics,specific_characteristics,coverage
+Maternal age,15-19 years,30.5
+Maternal age,20-34 years,36.2
+Maternal age,35-49 years,26.1
+Household wealth,poorest,19.4
+Household wealth,poorer,31.9
+Household wealth,middle,30
+Household wealth,richer,41.2
+Household wealth,richest,58.5
+Residence,rural,30.3
+Residence,urban,61.1
+Region,Afar,12.4
+Region,Tigray,62.5
+Region,Amhara,40.7
+Region,Oromia,24.6
+Region,Somali,21.5
+Region,Benishangul,55.3
+Region,SNNPR,32.1
+Region,Gambela,37.7
+Region,Harari,41.2
+Region,Addis Ababa,81.6
+Region,Dire Dawa,65.5
+Maternal education,none,26.9
+Maternal education,primary,39.5
+Maternal education,secondary/higher,65.7
+Household head,male,35.2
+Household head,female,26.2
+Child,male,32.3
+Child,female,35.1
+Birth order,firstborn to third born,39.9
+Birth order,fourth born or higher,28
+Marital status,Not married or formerly married,26.9
+Marital status,"Married, not residing with partner",24.4
+Marital status,Married and residing with partner,35.1
+Ethnicity,Somali,22.6
+Ethnicity,Amhara,45.1
+Ethnicity,Oromo,24.3
+Ethnicity,Tigray,62.9
+Ethnicity,other,32.8
+Religion,Muslim,24.2
+Religion,Christian,41.6
+Religion,Traditional and other,0.3

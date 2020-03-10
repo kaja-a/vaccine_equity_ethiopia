@@ -67,8 +67,9 @@ create_map <- function () {
     geom_polygon (data = shapefile.df, 
                   aes (x = long, y = lat, group = group, fill = coverage), 
                   colour = "gold") +
-    labs (title = "       Basic vaccination coverage in different regions of Ethiopia", size = 10) +
-
+    # labs (title = "       Basic vaccination coverage in different regions of Ethiopia", size = 10) +
+    labs (title = "  Age-appropriate vaccination coverage among children aged 12-23 months in 9 regional states and 2 chartered cities of Ethiopia", 
+          subtitle = "                (1-dose BCG, 3-dose DTP3-HepB-Hib, 3-dose polio, 1-dose measles (MCV1), 3-dose PCV3, 2-dose rotavirus)" ) +
     geom_polygon (data = shapefile.df [id == "Addis Ababa"], aes(x = long, y = lat, group = group, fill = coverage), colour = "gold") +
     geom_polygon (data = shapefile.df [id == "Harari People"], aes(x = long, y = lat, group = group, fill = coverage), colour = "gold") +
     geom_text (data = pop.df, 
@@ -76,8 +77,9 @@ create_map <- function () {
                size = 4, 
                color = "gold") +
     theme_void () +
-    theme (plot.title = element_text (size = 20)) +
-    theme (legend.title = element_text(size = 18),
+    theme (plot.title = element_text (size = 14)) +
+    theme (plot.subtitle = element_text (size = 14)) +
+    theme (legend.title = element_text(size = 14),
            legend.text = element_text(size = 14)) + 
     scale_fill_continuous (name  = "coverage (%)", 
                            trans = "reverse", 
@@ -86,17 +88,17 @@ create_map <- function () {
   print (p)
   
   # save map figure to file
-  ggsave (filename = "Ethiopia_basic_vaccination_coverage_DHS2016.png",
-          width = 10,
-          height = 9 * asp,
+  ggsave (filename = "Ethiopia_vaccination_coverage_DHS2016.jpg",
+          width = 10 * 1.11,
+          height = 9 * 1.15 * asp,
           units = "in",
-          dpi = 300)
+          dpi = 1000)
   
-  ggsave (filename = "Ethiopia_basic_vaccination_coverage_DHS2016.eps",
-          width = 10,
-          height = 9 * asp,
+  ggsave (filename = "Ethiopia_vaccination_coverage_DHS2016.eps",
+          width = 10 * 1.11,
+          height = 9 * 1.15 * asp,
           units = "in",
-          dpi = 600)
+          device = cairo_ps)
   
   return (p)
   
