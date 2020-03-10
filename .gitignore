@@ -8,6 +8,12 @@ plot_coverage_maternal_child.jpg
 plot_coverage_socioeconomic_geographic.jpg
 plot_socioeconomic_geographic_maternal_child_coverage.jpg
 .Rhistory
+<<<<<<< HEAD
 *.eps
 *.png
 *.jpg
+=======
+.Rhistory
+>>>>>>> 6c372f9ca1308bdaf1b4dba73b5ba9dd3d6264c8
+.Rhistory
+.Rhistory
