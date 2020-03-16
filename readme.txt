@@ -10,7 +10,7 @@ plot.R - plot script that generates
 
 
 ethiopia_map.R - plot script that generates
-  (Iii) Ethiopia_vaccination_coverage_DHS2016.jpg (and .eps figures)
+  (iii) Ethiopia_vaccination_coverage_DHS2016.jpg (and .eps figures)
 
 ---------------------------------------------------------------------------------------
 

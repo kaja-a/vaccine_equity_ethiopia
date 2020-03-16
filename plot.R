@@ -74,11 +74,10 @@ for (i in 1:4) {
 
 # arrange plot columns and rows
 p <- ggarrange (plotlist = plot_list, ncol = 2, nrow = 2)
-print (p)
 
 p <- annotate_figure (p,
                       # top = text_grob ("Basic vaccination coverage by socioeconomic, geographic, maternal, and child characteristics",
-                      top = text_grob (" Age-appropriate vaccination coverage among children aged 12-23 months in Ethiopia by
+                      top = text_grob ("  Full vaccination coverage among children aged 12-23 months in Ethiopia by
    socioeconomic, geographic, maternal, and child characteristics
 (1-dose BCG, 3-dose DTP3-HepB-Hib, 3-dose polio, 1-dose measles (MCV1), 3-dose PCV3, 2-dose rotavirus)\n",
                                        color = "black", 
@@ -88,7 +87,7 @@ p <- annotate_figure (p,
 ggsave (filename = "plot_socioeconomic_geographic_maternal_child_coverage.jpg", 
         plot = p, 
         units = "in", width = 20.5, height = 22.5, 
-        dpi = 1000)
+        dpi = 600)
 
 ggsave (filename = "plot_socioeconomic_geographic_maternal_child_coverage.eps", 
         plot = p, 
@@ -145,7 +144,7 @@ p <- ggarrange (plotlist = plot_list, ncol = 2, nrow = 4)
 
 p <- annotate_figure (p,
                    # top = text_grob ("Adjusted odds ratios of basic vaccination coverage in children aged 12-23 months
-                     top = text_grob ("Adjusted odds ratios of age-appropriate vaccination coverage among children aged 12-23 months in Ethiopia
+                     top = text_grob ("  Adjusted odds ratios of full vaccination coverage among children aged 12-23 months in Ethiopia
 (1-dose BCG, 3-dose DTP3-HepB-Hib, 3-dose polio, 1-dose measles (MCV1), 3-dose PCV3, 2-dose rotavirus)\n",
                                       color = "black", 
                                       size = 12))
@@ -156,7 +155,7 @@ print (p)
 ggsave (filename = "plot_aor.jpg", 
         plot = p, 
         units = "in", width = 8.25, height = 8, 
-        dpi = 1000)
+        dpi = 600)
 
 ggsave (filename = "plot_aor.eps", 
         plot = p, 

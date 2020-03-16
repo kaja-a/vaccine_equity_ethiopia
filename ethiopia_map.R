@@ -68,8 +68,8 @@ create_map <- function () {
                   aes (x = long, y = lat, group = group, fill = coverage), 
                   colour = "gold") +
     # labs (title = "       Basic vaccination coverage in different regions of Ethiopia", size = 10) +
-    labs (title = "  Age-appropriate vaccination coverage among children aged 12-23 months in 9 regional states and 2 chartered cities of Ethiopia", 
-          subtitle = "                (1-dose BCG, 3-dose DTP3-HepB-Hib, 3-dose polio, 1-dose measles (MCV1), 3-dose PCV3, 2-dose rotavirus)" ) +
+    labs (title = "     Full vaccination coverage among children aged 12-23 months in 9 regional states and 2 chartered cities of Ethiopia", 
+          subtitle = "                 (1-dose BCG, 3-dose DTP3-HepB-Hib, 3-dose polio, 1-dose measles (MCV1), 3-dose PCV3, 2-dose rotavirus)" ) +
     geom_polygon (data = shapefile.df [id == "Addis Ababa"], aes(x = long, y = lat, group = group, fill = coverage), colour = "gold") +
     geom_polygon (data = shapefile.df [id == "Harari People"], aes(x = long, y = lat, group = group, fill = coverage), colour = "gold") +
     geom_text (data = pop.df, 
@@ -77,7 +77,7 @@ create_map <- function () {
                size = 4, 
                color = "gold") +
     theme_void () +
-    theme (plot.title = element_text (size = 14)) +
+    theme (plot.title = element_text (size = 15)) +
     theme (plot.subtitle = element_text (size = 14)) +
     theme (legend.title = element_text(size = 14),
            legend.text = element_text(size = 14)) + 
@@ -88,13 +88,13 @@ create_map <- function () {
   print (p)
   
   # save map figure to file
-  ggsave (filename = "Ethiopia_vaccination_coverage_DHS2016.jpg",
+  ggsave (filename = "plot_Ethiopia_vaccination_coverage_DHS2016.jpg",
           width = 10 * 1.11,
           height = 9 * 1.15 * asp,
           units = "in",
-          dpi = 1000)
+          dpi = 600)
   
-  ggsave (filename = "Ethiopia_vaccination_coverage_DHS2016.eps",
+  ggsave (filename = "plot_Ethiopia_vaccination_coverage_DHS2016.eps",
           width = 10 * 1.11,
           height = 9 * 1.15 * asp,
           units = "in",
